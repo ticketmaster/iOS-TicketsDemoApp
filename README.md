@@ -8,7 +8,7 @@ This is an example integration of the Ticketmaster Ignite SDK, Tickets framework
 
 ## Demo App Screenshots
 
-<img src="Screenshots/MainMenu.jpg" alt="Main Menu" style="zoom:25%;" /> <img src="Screenshots/Login.jpg" alt="Login" style="zoom:25%;" /> <img src="Screenshots/Events.jpg" alt="Events Listing Page" style="zoom:25%;" /> <img src="Screenshots/Tickets.jpg" alt="Tickets Listing Page" style="zoom:25%;" />
+<img src="Screenshots/MainMenu.jpg" alt="Main Menu" /> <img src="Screenshots/Login.jpg" alt="Login" /> <img src="Screenshots/Events.jpg" alt="Events Listing Page" /> <img src="Screenshots/Tickets.jpg" alt="Tickets Listing Page" />
 
 
 ## Getting Started
