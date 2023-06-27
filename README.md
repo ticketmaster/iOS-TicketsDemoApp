@@ -1,6 +1,10 @@
 # iOS Tickets SDK Application Integration Demo
 
-This is an example integration of the Ticketmaster Tickets SDK: https://developer.ticketmaster.com/products-and-docs/sdks/presence-sdk/iOS/index.html.
+This is an example integration of the Ticketmaster Ignite SDK, Tickets framework.
+
+* Documentation: https://ignite.ticketmaster.com/docs/tickets-sdk-overview
+* Frameworks: https://github.com/ticketmaster/iOS-IgniteSDK
+* Source: https://github.com/ticketmaster/iOS-TicketsDemoApp
 
 ## Demo App Screenshots
 
