@@ -14,12 +14,13 @@ This is an example integration of the Ticketmaster Ignite SDK, Tickets framework
 ## Getting Started
 
 1. Open **TicketsSDKDemoIntegration.xcodeproj** in Xcode 14.3+
+   1. This will also download the required .xcframeworks using Swift Package Manager
 
-1. Update **Configuration.swift** with your own API key (available from https://developer.ticketmaster.com)
+2. Update **Configuration.swift** with your own API key (available from https://developer.ticketmaster.com)
 
-2. Update **TicketsSDKDemoIntegration** target's _Signing & Capabilities_ with your own Apple Developer certificate
+3. Update **TicketsSDKDemoIntegration** target's _Signing & Capabilities_ with your own Apple Developer certificate
 
-3. Build and Run **TicketsSDKDemoIntegration** target
+4. Build and Run **TicketsSDKDemoIntegration** target
 
 
 # Example Code
