@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit // for MKCoordinateRegion and CLLocationCoordinate2D
 import TicketmasterTickets // for TMTicketsModuleDelegate
 
 extension MainMenuViewController: TMTicketsModuleDelegate {
@@ -117,11 +118,18 @@ fileprivate extension MainMenuViewController {
     func addCustomModules(event: TMPurchasedEvent) -> [TMTicketsModule] {
         print(" - Adding Custom Modules")
         var output: [TMTicketsModule] = []
-        
-        // build a custom venue info module
+                
+        // build a custom rideshare module
         // Ticket SDK is not sure exactly how you want to handle a "rideshare",
         //  so Tickets will call back into handleModuleActionButton()
-        if let module = rideshareParkingModule(event: event) {
+        if let module = parkingModule(event: event) {
+            output.append(module)
+        }
+        
+        // build a custom venue parking module
+        // Ticket SDK is not sure exactly how you want to handle a "rideshare",
+        //  so Tickets will call back into handleModuleActionButton()
+        if let module = rideshareModule(event: event) {
             output.append(module)
         }
         
@@ -155,8 +163,40 @@ fileprivate extension MainMenuViewController {
 
         return output
     }
+    
+    func parkingModule(event: TMPurchasedEvent) -> TMTicketsModule? {
+        // unfortunately the event object doesn't have info about particular parking lots
+        // so we'll have to code the values manually
+        
+        // define map region and zoom (span)
+        let mapRegion = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 34.0734, longitude: -118.2402),
+            span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+
+        // define map point of interest
+        let mapAnnotation = TMTicketsModuleHeaderView.MapAnnotation(
+            coordinate: CLLocationCoordinate2D(latitude: 34.0735, longitude: -118.2456),
+            title: "Lot 1")
+
+        // build a UIView with a text, gradient, and image
+        let headerView = TMTicketsModuleHeaderView.build()
+        headerView.configure(topLabelText: "Parking: Lot 1",
+                             mapCoordinateRegion: mapRegion,
+                             mapAnnotation: mapAnnotation)
+
+        // build header with HeaderView (a UIView)
+        let header = TMTicketsModule.HeaderDisplay(view: headerView)
+
+        // build buttons
+        let button1 = TMTicketsModule.ActionButton(title: "Parking Directions")
+
+        // build module with header and buttons
+        return TMTicketsModule(identifier: "com.myDemoApp.parking",
+                                     headerDisplay: header,
+                                     actionButtons: [button1])
+    }
  
-    func rideshareParkingModule(event: TMPurchasedEvent) -> TMTicketsModule? {
+    func rideshareModule(event: TMPurchasedEvent) -> TMTicketsModule? {
         // only allow rideshare to specific venues?
         //guard event.info.venue?.identifier == "123456" else { return nil }
         
@@ -181,7 +221,7 @@ fileprivate extension MainMenuViewController {
         // 3. both header and buttons
         
         // build module
-        return TMTicketsModule(identifier: "com.myDemoApp.rideshareParking", // a name unique to your app
+        return TMTicketsModule(identifier: "com.myDemoApp.rideshare", // a name unique to your app
                                headerDisplay: nil, // this module has buttons only (no header)
                                actionButtons: [rideshareActionButton, parkingActionButton]) // you can show 0 to 3 buttons
     }

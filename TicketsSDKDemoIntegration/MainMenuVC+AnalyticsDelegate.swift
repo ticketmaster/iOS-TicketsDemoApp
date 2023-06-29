@@ -70,6 +70,4 @@ extension MainMenuViewController: TMTicketsAnalyticsDelegate {
             print(" - empty")
         }
     }
-    
-    
 }
