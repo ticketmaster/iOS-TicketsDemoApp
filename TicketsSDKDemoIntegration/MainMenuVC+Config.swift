@@ -94,19 +94,29 @@ extension MainMenuViewController {
         //                                                textColor: .yellow,
         //                                                ticketColor: .blue,
         //                                                theme: .light)
-        //        TMTickets.shared.brandingColorsOverride = branding
+        //        TMTickets.shared.configure {
+        //            // override branding AFTER configure completes (inside configure completion block)
+        //            TMTickets.shared.brandingColorsOverride = branding
+        //        }
         //
+        // You may also override the override. Which is to say:
+        //
+        //        // do NOT brand nav bar at all
         //        TMTickets.shared.brandingColorNavBarOverride = true
+        //
+        //        // use default TM branding for TM buttons (Transfer, Sell),
+        //        // use the branding you provided for non-TM buttons
         //        TMTickets.shared.brandingColorButtonOverride = true
         
-        let branding = TMTickets.BrandingColors(navBarColor: .red,
-                                                buttonColor: .orange,
-                                                textColor: .yellow,
-                                                ticketColor: .blue,
-                                                theme: .light)
-        TMTickets.shared.brandingColorsOverride = branding
+        var brandingOverride: TMTickets.BrandingColors?
+//        brandingOverride = TMTickets.BrandingColors(navBarColor: .red,
+//                                                    buttonColor: .orange,
+//                                                    textColor: .yellow,
+//                                                    ticketColor: .blue,
+//                                                    theme: .light)
+        // note that there are various backend rules that may override the provided ticketColor for Archtics season tickets
         
-        // optional
+        // optional team logo (on Account selection header)
         TMTickets.shared.brandingTeamLogoImage = Configuration.shared.teamLogo
         
         // TMTickets inherits it's configuration from TMAuthentication
@@ -114,6 +124,8 @@ extension MainMenuViewController {
         TMTickets.shared.configure {
             // Tickets is configured, now we are ready to present TMTicketsViewController or TMTicketsView
             print(" - Tickets SDK Configured")
+            // override default branding (if any), nil = use default TMAuthentication branding
+            TMTickets.shared.brandingColorsOverride = brandingOverride
             completion(true)
             
         } failure: { error in
