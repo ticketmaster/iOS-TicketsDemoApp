@@ -108,12 +108,12 @@ extension MainMenuViewController {
         //        // use the branding you provided for non-TM buttons
         //        TMTickets.shared.brandingColorButtonOverride = true
         
-        var brandingOverride: TMTickets.BrandingColors?
-//        brandingOverride = TMTickets.BrandingColors(navBarColor: .red,
-//                                                    buttonColor: .orange,
-//                                                    textColor: .yellow,
-//                                                    ticketColor: .blue,
-//                                                    theme: .light)
+        let brandingOverride: TMTickets.BrandingColors? = nil
+//        let brandingOverride = TMTickets.BrandingColors(navBarColor: .red,
+//                                                        buttonColor: .orange,
+//                                                        textColor: .yellow,
+//                                                        ticketColor: .blue,
+//                                                        theme: .light)
         // note that there are various backend rules that may override the provided ticketColor for Archtics season tickets
         
         // optional team logo (on Account selection header)
