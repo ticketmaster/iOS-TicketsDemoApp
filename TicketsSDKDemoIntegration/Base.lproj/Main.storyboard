@@ -165,20 +165,8 @@
                     <view key="view" contentMode="scaleToFill" id="b85-3P-Oay">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nYz-3i-Uw3" customClass="TMTicketsView" customModule="TicketmasterTickets">
-                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Jv5-BB-F55"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
-                        <constraints>
-                            <constraint firstItem="nYz-3i-Uw3" firstAttribute="bottom" secondItem="b85-3P-Oay" secondAttribute="bottom" id="Ukf-rx-A1V"/>
-                            <constraint firstItem="nYz-3i-Uw3" firstAttribute="leading" secondItem="Jv5-BB-F55" secondAttribute="leading" id="Xda-Lb-4Lh"/>
-                            <constraint firstItem="nYz-3i-Uw3" firstAttribute="top" secondItem="Jv5-BB-F55" secondAttribute="top" id="ZLD-7y-LaN"/>
-                            <constraint firstItem="nYz-3i-Uw3" firstAttribute="trailing" secondItem="Jv5-BB-F55" secondAttribute="trailing" id="ymL-Ra-U10"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6hG-zh-Xnt">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="Oc5-MJ-iUq">
@@ -189,7 +177,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="logoutButton" destination="Oc5-MJ-iUq" id="17o-1I-kyw"/>
-                        <outlet property="ticketsView" destination="nYz-3i-Uw3" id="Ry1-G3-m8d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iLh-Zs-3gs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -198,9 +185,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
