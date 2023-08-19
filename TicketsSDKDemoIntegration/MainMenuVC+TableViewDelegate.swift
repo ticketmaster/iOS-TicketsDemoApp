@@ -25,9 +25,16 @@ extension MainMenuViewController {
             let ticketsVC = TMTicketsViewController()
             present(ticketsVC, animated: true)
         
-        // Present Tickets (embedded)
+        // Push Tickets (embedded)
         } else if indexPath == IndexPath(row: 2, section: 0) {
-            // handled by storyboard seque
+            let embeddedVC = EmbeddedViewController()
+            embeddedVC.addLogoutButton = true
+            navigationController?.pushViewController(embeddedVC, animated: true)
+            
+        // Present Tickets (embedded)
+        } else if indexPath == IndexPath(row: 3, section: 0) {
+            let embeddedVC = EmbeddedViewController()
+            present(embeddedVC, animated: true)
             
         // Login
         } else if indexPath == IndexPath(row: 0, section: 1) {

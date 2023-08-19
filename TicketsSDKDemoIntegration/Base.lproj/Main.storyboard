@@ -4,8 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -76,7 +74,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="322.66666666666669" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Present Tickets (Embedded)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="biV-tl-AzR">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Push Tickets (Embedded)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="biV-tl-AzR">
                                                     <rect key="frame" x="20" y="0.0" width="294.66666666666669" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
@@ -85,16 +83,30 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="UeC-JM-Pt6" kind="show" id="OtI-Bv-3E7"/>
-                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="L2p-Ag-qxv" style="IBUITableViewCellStyleDefault" id="8XR-YV-k8y">
+                                        <rect key="frame" x="20" y="186.33333587646484" width="353" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8XR-YV-k8y" id="IT3-ad-mOM">
+                                            <rect key="frame" x="0.0" y="0.0" width="322.66666666666669" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Present Tickets (Embedded)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L2p-Ag-qxv">
+                                                    <rect key="frame" x="20" y="0.0" width="294.66666666666669" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Authentication SDK" id="HB8-vG-iPl">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="f3p-6b-GO6" style="IBUITableViewCellStyleDefault" id="WFd-k6-LJi">
-                                        <rect key="frame" x="20" y="242.33333396911621" width="353" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="286.00000190734863" width="353" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WFd-k6-LJi" id="1y1-se-3Gx">
                                             <rect key="frame" x="0.0" y="0.0" width="322.66666666666669" height="43.666667938232422"/>
@@ -111,7 +123,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Djk-SZ-e4I" style="IBUITableViewCellStyleDefault" id="tiO-Ck-y8C">
-                                        <rect key="frame" x="20" y="286.00000190734863" width="353" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="329.66666984558105" width="353" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tiO-Ck-y8C" id="P4P-oP-nY7">
                                             <rect key="frame" x="0.0" y="0.0" width="322.66666666666669" height="43.666667938232422"/>
@@ -128,7 +140,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="65Z-UC-x4A" style="IBUITableViewCellStyleDefault" id="XLu-lK-8yr">
-                                        <rect key="frame" x="20" y="329.66666984558105" width="353" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="373.33333778381348" width="353" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XLu-lK-8yr" id="2e8-zg-h61">
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="43.666667938232422"/>
@@ -158,35 +170,5 @@
             </objects>
             <point key="canvasLocation" x="-189" y="-30"/>
         </scene>
-        <!--Embedded View Controller-->
-        <scene sceneID="VBn-Mg-OeD">
-            <objects>
-                <viewController id="UeC-JM-Pt6" customClass="EmbeddedViewController" customModule="TicketsSDKDemoIntegration" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="b85-3P-Oay">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Jv5-BB-F55"/>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="6hG-zh-Xnt">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="Oc5-MJ-iUq">
-                            <connections>
-                                <action selector="logoutButtonPressed:" destination="UeC-JM-Pt6" id="hDm-oY-CT0"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="logoutButton" destination="Oc5-MJ-iUq" id="17o-1I-kyw"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iLh-Zs-3gs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="751.90839694656484" y="-30.281690140845072"/>
-        </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

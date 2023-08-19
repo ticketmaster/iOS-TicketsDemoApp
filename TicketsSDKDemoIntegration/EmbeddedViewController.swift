@@ -14,17 +14,29 @@ import TicketmasterTickets // for TMTickets.shared and TMTicketsView
 /// this example is provided as an alternative way to embed Tickets SDK in your application's UI
 class EmbeddedViewController: UIViewController {
     
-    @IBOutlet weak var logoutButton: UIBarButtonItem!
-
-    var ticketsView: TMTicketsView?
+    var addLogoutButton: Bool = false
+    
+    var addCloseButton: Bool = false
+    
+    var useSafeBottom: Bool = false
+    
+    private var logoutButton: UIBarButtonItem?
+    private var closeButton: UIBarButtonItem?
+    
+    private var ticketsView: TMTicketsView?
+    
+    private var didAttachTicketsView: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "My Events"
         
-        // build TMTicketsView, attach to parent via constraints
-        buildAndAttachTicketsView()
+        // build TMTicketsView
+        buildTicketsView()
+        
+        // build logout button (if navBar present)
+        buildButtons()
         
         // update logout button based on current login state
         updateLogoutButton()
@@ -33,18 +45,37 @@ class EmbeddedViewController: UIViewController {
         registerForLoginStateNotifications()
     }
     
-    func buildAndAttachTicketsView() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // attach to parent via constraints
+        attachTicketsView()
+    }
+    
+    func buildTicketsView() {
         // do not allow multiple instances of ticketsView
         if ticketsView == nil {
             // build a new TMTicketsView
             ticketsView = TMTicketsView(frame: .zero)
             if let tView = ticketsView {
+                // tell Tickets SDK to use the provided TMTicketsView
+                //  - you do not need to call this method when using TMTicketsViewController
+                //  - see MainMenuVC+TableViewDleegate.swift
+                TMTickets.shared.start(ticketsView: tView)
+            }
+        }
+    }
+    
+    func attachTicketsView() {
+        if let tView = ticketsView {
+            if didAttachTicketsView == false {
+                didAttachTicketsView = true
                 // always set this when using constraints
                 tView.translatesAutoresizingMaskIntoConstraints = false
                 
                 // add TMTicketsView to EmbeddedViewController.view
                 view.addSubview(tView)
-
+                
                 // do NOT extend under nav bar (ie. use safeAreaLayoutGuide)
                 let topConstraint = NSLayoutConstraint(item: tView, attribute: .top, relatedBy: .equal,
                                                        toItem: view.safeAreaLayoutGuide, attribute: .top, multiplier: 1.0, constant: 0.0)
@@ -52,17 +83,19 @@ class EmbeddedViewController: UIViewController {
                                                         toItem: view.safeAreaLayoutGuide, attribute: .left, multiplier: 1.0, constant: 0.0)
                 let rightConstraint = NSLayoutConstraint(item: tView, attribute: .right, relatedBy: .equal,
                                                          toItem: view.safeAreaLayoutGuide, attribute: .right, multiplier: 1.0, constant: 0.0)
-                // extend under bottom tab swipe (ie. do NOT use safeAreaLayoutGuide)
-                let bottomConstraint = NSLayoutConstraint(item: tView, attribute: .bottom, relatedBy: .equal,
+                let bottomConstraint: NSLayoutConstraint
+                if useSafeBottom {
+                    // do NOT extend under bottom tab swipe (ie. use safeAreaLayoutGuide)
+                    bottomConstraint = NSLayoutConstraint(item: tView, attribute: .bottom, relatedBy: .equal,
+                                                          toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+                } else {
+                    // extend under bottom tab swipe (ie. do NOT use safeAreaLayoutGuide)
+                    bottomConstraint = NSLayoutConstraint(item: tView, attribute: .bottom, relatedBy: .equal,
                                                           toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+                }
                 
                 // add TMTicketsView contraints to EmbeddedViewController.view
                 view.addConstraints([leftConstraint, topConstraint, rightConstraint, bottomConstraint])
-                
-                // tell Tickets SDK to use the provided TMTicketsView
-                //  - you do not need to call this method when using TMTicketsViewController
-                //  - see MainMenuVC+TableViewDleegate.swift
-                TMTickets.shared.start(ticketsView: tView)
             }
         }
     }
@@ -79,14 +112,31 @@ class EmbeddedViewController: UIViewController {
                                                object: nil)
     }
     
-    @objc func updateLogoutButton() {
-        // we can define "logged in" as having an OAuth token
-        logoutButton.isEnabled = TMAuthentication.shared.hasToken()
+    func buildButtons() {
+        if addLogoutButton, logoutButton == nil {
+            logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonPressed))
+            navigationItem.rightBarButtonItem = logoutButton
+        }
+        if addCloseButton, closeButton == nil {
+            closeButton =  UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(closeButtonPressed))
+            navigationItem.leftBarButtonItem = closeButton
+        }
     }
     
-    @IBAction func logoutButtonPressed(_ sender: Any) {
+    @objc func updateLogoutButton() {
+        // we can define "logged in" as having an OAuth token
+        logoutButton?.isEnabled = TMAuthentication.shared.hasToken()
+    }
+    
+    @objc func logoutButtonPressed(_ sender: Any) {
         TMAuthentication.shared.logout { _ in
             // list of all backends that were logged out
+        }
+    }
+    
+    @objc func closeButtonPressed(_ sender: Any) {
+        dismissSelf(animated: true) {
+            // all done
         }
     }
 }
