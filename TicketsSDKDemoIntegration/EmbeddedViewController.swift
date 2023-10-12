@@ -60,7 +60,7 @@ class EmbeddedViewController: UIViewController {
             if let tView = ticketsView {
                 // tell Tickets SDK to use the provided TMTicketsView
                 //  - you do not need to call this method when using TMTicketsViewController
-                //  - see MainMenuVC+TableViewDleegate.swift
+                //  - see MainMenuVC+TableViewDelegate.swift
                 //
                 // IMPORTANT: Make sure to call this method AFTER or INSIDE TMTickets.shared.configure { ... }
                 TMTickets.shared.start(ticketsView: tView)
