@@ -3,6 +3,9 @@
 This is an example integration of the Ticketmaster Ignite SDK, Tickets framework.
 
 * Overview: https://business.ticketmaster.com/ignite/
+* Release Notes: 
+  * Authentication: https://ignite.ticketmaster.com/docs/ios-authentication-change-log
+  * Tickets: https://ignite.ticketmaster.com/docs/ios-tickets-change-log
 * Documentation: https://ignite.ticketmaster.com/docs/tickets-sdk-overview
 * Frameworks: https://github.com/ticketmaster/iOS-TicketmasterSDK
 * Android Source (Tickets SDK): https://github.com/ticketmaster/Android-TicketsDemoApp
