@@ -16,7 +16,7 @@ class Configuration: NSObject {
     /// get your own API key from developer.ticketmaster.com
     let apiKey: String = "<your apiKey>"
     
-    /// UK, IE, and Sport XR should use .UK, all others should use .US
+    /// UK, IE, Microflex and Sport XR should use .UK, all others should use .US
     let region: TMAuthentication.TMXDeploymentRegion = .US
     
     /// name of your App/Team/Artist/Venue
