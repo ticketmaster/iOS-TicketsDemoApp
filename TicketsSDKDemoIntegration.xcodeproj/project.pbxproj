@@ -11,6 +11,7 @@
 		79CD611F2A4E0D360005384B /* TicketmasterFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 79CD611E2A4E0D360005384B /* TicketmasterFoundation */; };
 		79CD61212A4E0D360005384B /* TicketmasterSecureEntry in Frameworks */ = {isa = PBXBuildFile; productRef = 79CD61202A4E0D360005384B /* TicketmasterSecureEntry */; };
 		79CD61232A4E0D360005384B /* TicketmasterTickets in Frameworks */ = {isa = PBXBuildFile; productRef = 79CD61222A4E0D360005384B /* TicketmasterTickets */; };
+		79DC447C2BE984DC001ABDDF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 79DC447B2BE984DC001ABDDF /* PrivacyInfo.xcprivacy */; };
 		79ED74F12A3B54B800403D43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ED74F02A3B54B700403D43 /* AppDelegate.swift */; };
 		79ED74F32A3B54B800403D43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ED74F22A3B54B800403D43 /* SceneDelegate.swift */; };
 		79ED74F52A3B54B800403D43 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ED74F42A3B54B800403D43 /* MainMenuViewController.swift */; };
@@ -47,6 +48,7 @@
 		792867A42A4636DA00DD4F4D /* Events.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Events.jpg; sourceTree = "<group>"; };
 		792867A52A4636DA00DD4F4D /* MainMenu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MainMenu.jpg; sourceTree = "<group>"; };
 		792867A62A463A0200DD4F4D /* Modules.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Modules.jpg; sourceTree = "<group>"; };
+		79DC447B2BE984DC001ABDDF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		79ED74ED2A3B54B700403D43 /* TicketsSDKDemoIntegration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketsSDKDemoIntegration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79ED74F02A3B54B700403D43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79ED74F22A3B54B800403D43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				79ED74F92A3B54BA00403D43 /* Assets.xcassets */,
 				79ED74FB2A3B54BA00403D43 /* LaunchScreen.storyboard */,
 				79ED74FE2A3B54BA00403D43 /* Info.plist */,
+				79DC447B2BE984DC001ABDDF /* PrivacyInfo.xcprivacy */,
 			);
 			path = TicketsSDKDemoIntegration;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			files = (
 				79ED74FD2A3B54BA00403D43 /* LaunchScreen.storyboard in Resources */,
 				79ED74FA2A3B54BA00403D43 /* Assets.xcassets in Resources */,
+				79DC447C2BE984DC001ABDDF /* PrivacyInfo.xcprivacy in Resources */,
 				79ED74F82A3B54B800403D43 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,7 +463,7 @@
 			repositoryURL = "https://github.com/ticketmaster/iOS-TicketmasterSDK.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.6.3;
+				version = 1.6.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
