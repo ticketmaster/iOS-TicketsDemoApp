@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import TicketmasterFoundation
+import TicketmasterAuthentication
+import TicketmasterSecureEntry
+import TicketmasterTickets
 
 class MainMenuViewController: UITableViewController {
     
@@ -13,6 +17,8 @@ class MainMenuViewController: UITableViewController {
         super.viewDidLoad()
         
         title = "Main Menu"
+
+        printVersions()
 
         configureBothSDKs()
 
@@ -38,5 +44,17 @@ private extension MainMenuViewController {
         navigationController?.navigationBar.standardAppearance = barAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = barAppearance
         navigationController?.navigationBar.tintColor = .white
+    }
+    
+    func printVersions() {
+        print("==========================================")
+        print("TMFoundation      : v\(TMFoundation.shared.version)")
+        print("TMAuthentication  : v\(TMAuthentication.shared.version)")
+        //print("TMDiscoveryAPI    : v\(TMDiscoveryAPI.shared.version)")
+        //print("TMPrePurchase     : v\(TMPrePurchase.shared.version)")
+        //print("TMPurchase        : v\(TMPurchase.shared.version)")
+        print("TMTickets         : v\(TMTickets.shared.version)")
+        print(" - SecureEntryView: v\(SecureEntryView.version)")
+        print("==========================================")
     }
 }
