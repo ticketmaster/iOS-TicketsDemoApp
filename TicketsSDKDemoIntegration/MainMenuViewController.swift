@@ -8,6 +8,7 @@
 import UIKit
 import TicketmasterFoundation
 import TicketmasterAuthentication
+import TicketmasterSwiftProtobuf
 import TicketmasterSecureEntry
 import TicketmasterTickets
 
@@ -55,6 +56,7 @@ private extension MainMenuViewController {
         //print("TMPurchase        : v\(TMPurchase.shared.version)")
         print("TMTickets         : v\(TMTickets.shared.version)")
         print(" - SecureEntryView: v\(SecureEntryView.version)")
+        print(" - SwiftProtobuf  : v\(TMSwiftProtobuf.version)")
         print("==========================================")
     }
 }

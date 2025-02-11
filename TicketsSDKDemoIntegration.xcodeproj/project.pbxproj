@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		790F3C492D5ACA3F005E5C98 /* TicketmasterSwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 790F3C482D5ACA3F005E5C98 /* TicketmasterSwiftProtobuf */; };
 		79CD611D2A4E0D360005384B /* TicketmasterAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = 79CD611C2A4E0D360005384B /* TicketmasterAuthentication */; };
 		79CD611F2A4E0D360005384B /* TicketmasterFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 79CD611E2A4E0D360005384B /* TicketmasterFoundation */; };
 		79CD61212A4E0D360005384B /* TicketmasterSecureEntry in Frameworks */ = {isa = PBXBuildFile; productRef = 79CD61202A4E0D360005384B /* TicketmasterSecureEntry */; };
@@ -74,6 +75,7 @@
 			files = (
 				79CD611D2A4E0D360005384B /* TicketmasterAuthentication in Frameworks */,
 				79CD611F2A4E0D360005384B /* TicketmasterFoundation in Frameworks */,
+				790F3C492D5ACA3F005E5C98 /* TicketmasterSwiftProtobuf in Frameworks */,
 				79CD61232A4E0D360005384B /* TicketmasterTickets in Frameworks */,
 				79CD61212A4E0D360005384B /* TicketmasterSecureEntry in Frameworks */,
 			);
@@ -82,6 +84,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		790F3C472D5ACA3F005E5C98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		792867A12A4636B400DD4F4D /* SampleScreenshots */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +109,7 @@
 			children = (
 				79ED74EF2A3B54B700403D43 /* TicketsSDKDemoIntegration */,
 				79ED74EE2A3B54B700403D43 /* Products */,
+				790F3C472D5ACA3F005E5C98 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,6 +168,7 @@
 				79CD611E2A4E0D360005384B /* TicketmasterFoundation */,
 				79CD61202A4E0D360005384B /* TicketmasterSecureEntry */,
 				79CD61222A4E0D360005384B /* TicketmasterTickets */,
+				790F3C482D5ACA3F005E5C98 /* TicketmasterSwiftProtobuf */,
 			);
 			productName = TicketsSDKDemoIntegration;
 			productReference = 79ED74ED2A3B54B700403D43 /* TicketsSDKDemoIntegration.app */;
@@ -308,7 +319,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 3.10.0;
+				MARKETING_VERSION = 3.10.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -366,7 +377,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 3.10.0;
+				MARKETING_VERSION = 3.10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -463,12 +474,17 @@
 			repositoryURL = "https://github.com/ticketmaster/iOS-TicketmasterSDK.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.13.3;
+				version = 1.13.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		790F3C482D5ACA3F005E5C98 /* TicketmasterSwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79CD611B2A4E0D360005384B /* XCRemoteSwiftPackageReference "iOS-TicketmasterSDK" */;
+			productName = TicketmasterSwiftProtobuf;
+		};
 		79CD611C2A4E0D360005384B /* TicketmasterAuthentication */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 79CD611B2A4E0D360005384B /* XCRemoteSwiftPackageReference "iOS-TicketmasterSDK" */;
