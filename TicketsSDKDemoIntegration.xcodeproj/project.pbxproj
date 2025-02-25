@@ -27,6 +27,8 @@
 		79ED75242A3B6C9B00403D43 /* MainMenuVC+ModuleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ED75232A3B6C9B00403D43 /* MainMenuVC+ModuleDelegate.swift */; };
 		79ED75262A3B770400403D43 /* MainMenuVC+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ED75252A3B770400403D43 /* MainMenuVC+Config.swift */; };
 		79ED75282A3B775400403D43 /* MainMenuVC+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ED75272A3B775400403D43 /* MainMenuVC+TableViewDelegate.swift */; };
+		79FE1DF02D6E4D7D0070652F /* MainMenuVC+CustomModules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FE1DEF2D6E4D7D0070652F /* MainMenuVC+CustomModules.swift */; };
+		79FE1DF22D6E4DBC0070652F /* MainMenuVC+PrebuiltModules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FE1DF12D6E4DBC0070652F /* MainMenuVC+PrebuiltModules.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,6 +68,8 @@
 		79ED75232A3B6C9B00403D43 /* MainMenuVC+ModuleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainMenuVC+ModuleDelegate.swift"; sourceTree = "<group>"; };
 		79ED75252A3B770400403D43 /* MainMenuVC+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainMenuVC+Config.swift"; sourceTree = "<group>"; };
 		79ED75272A3B775400403D43 /* MainMenuVC+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainMenuVC+TableViewDelegate.swift"; sourceTree = "<group>"; };
+		79FE1DEF2D6E4D7D0070652F /* MainMenuVC+CustomModules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainMenuVC+CustomModules.swift"; sourceTree = "<group>"; };
+		79FE1DF12D6E4DBC0070652F /* MainMenuVC+PrebuiltModules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainMenuVC+PrebuiltModules.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 				79ED75212A3B6ABC00403D43 /* MainMenuVC+AnalyticsDelegate.swift */,
 				79ED751D2A3B678700403D43 /* MainMenuVC+AuthDelegate.swift */,
 				79ED75232A3B6C9B00403D43 /* MainMenuVC+ModuleDelegate.swift */,
+				79FE1DF12D6E4DBC0070652F /* MainMenuVC+PrebuiltModules.swift */,
+				79FE1DEF2D6E4D7D0070652F /* MainMenuVC+CustomModules.swift */,
 				79ED75272A3B775400403D43 /* MainMenuVC+TableViewDelegate.swift */,
 				79ED75192A3B5B1B00403D43 /* EmbeddedViewController.swift */,
 				79ED74F62A3B54B800403D43 /* Main.storyboard */,
@@ -232,6 +238,8 @@
 				79ED751A2A3B5B1B00403D43 /* EmbeddedViewController.swift in Sources */,
 				79ED751E2A3B678700403D43 /* MainMenuVC+AuthDelegate.swift in Sources */,
 				79ED75262A3B770400403D43 /* MainMenuVC+Config.swift in Sources */,
+				79FE1DF22D6E4DBC0070652F /* MainMenuVC+PrebuiltModules.swift in Sources */,
+				79FE1DF02D6E4D7D0070652F /* MainMenuVC+CustomModules.swift in Sources */,
 				79ED75242A3B6C9B00403D43 /* MainMenuVC+ModuleDelegate.swift in Sources */,
 				79ED751C2A3B5FFA00403D43 /* Configuration.swift in Sources */,
 				79ED74F52A3B54B800403D43 /* MainMenuViewController.swift in Sources */,
@@ -474,7 +482,7 @@
 			repositoryURL = "https://github.com/ticketmaster/iOS-TicketmasterSDK.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.13.4;
+				version = 1.13.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
