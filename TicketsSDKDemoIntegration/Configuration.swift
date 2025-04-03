@@ -11,7 +11,7 @@ import TicketmasterAuthentication
 
 class Configuration: NSObject {
     
-    static let shared = Configuration()
+    @MainActor static let shared = Configuration()
     
     /// get your own API key from developer.ticketmaster.com
     let apiKey: String = "<your apiKey>"

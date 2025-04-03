@@ -10,7 +10,7 @@ import TicketmasterAuthentication // for TMAuthentication.BackendService
 import TicketmasterTickets // for TMTicketsOrderDelegate
 
 /// optional delegate to be informed of non-analytics User-actions
-extension MainMenuViewController: TMTicketsOrderDelegate {
+extension MainMenuViewController: @preconcurrency TMTicketsOrderDelegate {
     
     /// Method is invoked if the client app needs to display some specific page
     /// - parameter deeplink: Identifier of the client app native page to be launched.

@@ -8,7 +8,7 @@
 import Foundation
 import TicketmasterTickets // for TMTicketsModuleDelegate
 
-extension MainMenuViewController: TMTicketsModuleDelegate {
+extension MainMenuViewController: @preconcurrency TMTicketsModuleDelegate {
             
     /**
      Method is invoked when the user is viewing a specific Event. Client app needs to define an array of custom modules (if any) and return them to the Tickets SDK.

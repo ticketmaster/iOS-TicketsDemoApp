@@ -9,7 +9,7 @@ import Foundation
 import TicketmasterAuthentication // for TMAuthenticationDelegate
 
 /// optional delegate to recieve login state change information
-extension MainMenuViewController: TMAuthenticationDelegate {
+extension MainMenuViewController: @preconcurrency TMAuthenticationDelegate {
     
     /// login state changed
     ///

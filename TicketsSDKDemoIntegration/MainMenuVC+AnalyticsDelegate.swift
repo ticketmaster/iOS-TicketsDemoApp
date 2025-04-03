@@ -9,7 +9,7 @@ import Foundation
 import TicketmasterTickets // for TMTicketsAnalyticsDelegate
 
 /// optional delegate to be informed of User behavior
-extension MainMenuViewController: TMTicketsAnalyticsDelegate {
+extension MainMenuViewController: @preconcurrency TMTicketsAnalyticsDelegate {
     
     /// user did view a page
     ///
