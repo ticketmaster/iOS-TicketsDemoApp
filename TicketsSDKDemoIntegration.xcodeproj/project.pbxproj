@@ -416,6 +416,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 3.12.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ticketmaster.TicketsSDKDemoIntegration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -445,6 +446,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 3.12.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ticketmaster.TicketsSDKDemoIntegration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -482,7 +484,7 @@
 			repositoryURL = "https://github.com/ticketmaster/iOS-TicketmasterSDK.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.14.0;
+				version = 1.14.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
