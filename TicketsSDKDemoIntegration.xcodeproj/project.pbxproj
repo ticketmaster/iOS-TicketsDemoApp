@@ -484,7 +484,7 @@
 			repositoryURL = "https://github.com/ticketmaster/iOS-TicketmasterSDK.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.14.1;
+				version = 1.14.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
