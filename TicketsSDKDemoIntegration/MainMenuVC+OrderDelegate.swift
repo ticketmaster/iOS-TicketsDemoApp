@@ -39,6 +39,18 @@ extension MainMenuViewController: TMTicketsOrderDelegate {
         }
     }
     
+    /// Method is invoked when custom button title is set by ``TMTickets/addCustomErrorPageButton(title:)``
+    ///
+    /// Add any custom behavior in your code when the custom error button is pressed.
+    ///
+    /// - Note: By default the custom button is hidden, so this method will not be called unless you set the custom button title first.
+    ///
+    ///  - Parameters:
+    ///     - title: The title of the button set by ``TMTickets/addCustomErrorPageButton(title:)``
+    func handleErrorPageCustomButton(title: String) {
+        print("User Pressed \(title) Button on No Tickets Error Page")
+    }
+    
     /// Method is invoked when the list of event change for a particular event ID
     /// - parameter events: array of current Events being viewed, will NOT contain Order or Ticket data
     /// - parameter fromCache: true = local cached data, false = fresh data from network
