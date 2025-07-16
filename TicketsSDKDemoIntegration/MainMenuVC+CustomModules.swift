@@ -16,7 +16,14 @@ extension MainMenuViewController {
     func buildCustomModules(event: TMPurchasedEvent, completion: @escaping (_ customModules: [TMTicketsModule]) -> Void) {
         print(" - Adding Custom Modules")
         var output: [TMTicketsModule] = []
-                
+        
+        // build a generic module
+        // Tickets SDK does not know how to handle a "generic" action,
+        //  so handleModuleActionButton() will be called
+        if let module = genericModule(event: event) {
+            output.append(module)
+        }
+        
         // build a custom rideshare module
         // Ticket SDK is not sure exactly how you want to handle a "rideshare",
         //  so Tickets will call back into handleModuleActionButton()
@@ -61,6 +68,32 @@ extension MainMenuViewController {
 
         // use an async completion in case any of these custom modules need to make a network request
         completion(output)
+    }
+    
+    func genericModule(event: TMPurchasedEvent) -> TMTicketsModule? {
+        // build any UIView here:
+        let headerView = UIView()
+        headerView.addConstraint(NSLayoutConstraint(item: headerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: 200)) // set height
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        headerView.backgroundColor = . red
+        
+        // build header display
+        // any UIView will work here for headerView
+        let headerDisplay = TMTicketsModule.HeaderDisplay(view: headerView)
+
+        // build generic action button
+        let genericButton = TMTicketsModule.ActionButton(title: "Time for Action!",
+                                                         callbackValue: "genericAction")
+        
+        // modules can have:
+        // 1. header only (no buttons)
+        // 2. buttons only (no header)
+        // 3. both header and buttons
+        
+        // build module
+        return TMTicketsModule(identifier: "com.myDemoApp.genericModule", // a name unique to your app
+                               headerDisplay: headerDisplay,
+                               actionButtons: [genericButton]) // you can show 0-3 buttons
     }
     
     func parkingModule(event: TMPurchasedEvent) -> TMTicketsModule? {

@@ -69,6 +69,15 @@ extension MainMenuViewController: TMTicketsModuleDelegate {
                 // ideally, this is a deep link to the Uber or Lyft app
                 // if the app is not available, then it opens the Uber or Lyft webpage
             }
+            
+        } else if module.identifier == "com.myDemoApp.genericModule" {
+            if button.callbackValue == "genericAction" {
+                print("handleModuleActionButton: Generic Action")
+                //completion(nil) // dismiss My Tickets view in PSDK
+                // TODO: handle whatever this "generic" action is supposed to be
+                // show some UI, launch an SDK, open a webpage, deep link to another app, register for push notifications
+                // whatever you want
+            }
         }
     }
 }
