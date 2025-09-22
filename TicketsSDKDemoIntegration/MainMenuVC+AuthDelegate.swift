@@ -46,8 +46,14 @@ extension MainMenuViewController: TMAuthenticationDelegate {
         case .loginStarted:
             /// login process has started, ``loggedIn`` state may be called multiple times
             break
-        case .loginExchanging:
-            /// login process is attempting to exchange external token for OAuth token
+        case .loginOAuthCodeExchanging:
+            /// login process is attempting to exchange an OAuth code for the given ``TMAuthentication/BackendService``, so login is still processing
+            break
+        case .loginExternalExchanging:
+            /// login process is attempting to exchange an external token for the given ``TMAuthentication/BackendService``, so login is still processing
+            break
+        case .loginSystemExchanging:
+            /// login process is attempting to exchange an internal system token for the given ``TMAuthentication/BackendService``, so login is still processing
             break
         case .loginPresented:
             /// user has been presented a login page for the given ``TMAuthentication/BackendService``, so login is still processing

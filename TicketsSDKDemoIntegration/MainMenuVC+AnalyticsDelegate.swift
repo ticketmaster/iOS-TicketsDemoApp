@@ -34,6 +34,10 @@ extension MainMenuViewController: TMTicketsAnalyticsDelegate {
             print(" - module: \(identifier) event: \(event.info.identifier)")
         case .moduleButton(let event, let module, let button):
             print(" - module: \(module.identifier) button: \(button.title)(\(button.callbackValue) event: \(event.info.identifier)")
+        case .moduleV2(event: let event, moduleID: let moduleID):
+            print(" - module: \(moduleID) event: \(event.info.identifier)")
+        case .moduleButtonV2(event: let event, moduleID: let moduleID, analyticsValue: let analyticsValue):
+            print(" - module: \(moduleID) value: \(analyticsValue) event: \(event.info.identifier)")
         case .empty:
             print(" - empty")
         @unknown default:
@@ -64,6 +68,10 @@ extension MainMenuViewController: TMTicketsAnalyticsDelegate {
             print(" - module: \(identifier) event: \(event.info.identifier)")
         case .moduleButton(let event, let module, let button):
             print(" - module: \(module.identifier) button: \(button.title)(\(button.callbackValue) event: \(event.info.identifier)")
+        case .moduleV2(event: let event, moduleID: let moduleID):
+            print(" - module: \(moduleID) event: \(event.info.identifier)")
+        case .moduleButtonV2(event: let event, moduleID: let moduleID, analyticsValue: let analyticsValue):
+            print(" - module: \(moduleID) value: \(analyticsValue) event: \(event.info.identifier)")
         case .empty:
             print(" - empty")
         @unknown default:
