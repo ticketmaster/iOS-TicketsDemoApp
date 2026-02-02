@@ -61,15 +61,27 @@ This order is critical and enforced in the `configureBothSDKs()` method.
 
 **EmbeddedViewController** - Demonstrates embedding `TMTicketsView` within a custom view hierarchy using Auto Layout constraints. Note: Using `TMTicketsViewController` is recommended; this embedded pattern is provided as an alternative for advanced use cases.
 
+**SwiftUI Integration** - SwiftUI wrapper and examples for integrating the SDK into SwiftUI apps:
+- `TicketsView.swift`: `UIViewControllerRepresentable` wrapper for `TMTicketsViewController`
+- `TicketsViewExamples.swift`: Four complete integration examples (basic, modal, full screen, tab view)
+- `SwiftUIIntegrationGuide.md`: Comprehensive documentation with code examples
+
 ### Presentation Patterns
 
-The app demonstrates three SDK presentation methods:
+The app demonstrates multiple SDK presentation methods across UIKit and SwiftUI:
 
+**UIKit Patterns:**
 1. **Push Navigation**: Push `TMTicketsViewController` onto navigation stack (recommended)
 2. **Modal Presentation**: Present `TMTicketsViewController` modally (recommended)
 3. **Embedded View**: Embed `TMTicketsView` in custom view controller with constraints (advanced)
 
-**Recommendation**: Use `TMTicketsViewController` (push or modal) for most use cases. The embedded `TMTicketsView` pattern is provided for advanced scenarios requiring custom view hierarchies.
+**SwiftUI Patterns:**
+4. **SwiftUI Basic (Push)**: Push `TicketsView` wrapper onto navigation stack
+5. **SwiftUI Modal**: Present with `.sheet` modifier
+6. **SwiftUI Full Screen**: Present with `.fullScreenCover` modifier
+7. **SwiftUI Tab View**: Embed in `TabView` with multiple tabs
+
+**Recommendation**: Use `TMTicketsViewController` (push or modal) for UIKit apps. Use `TicketsView` wrapper for SwiftUI apps. The embedded `TMTicketsView` pattern is provided for advanced UIKit scenarios requiring custom view hierarchies.
 
 ### Custom Modules System
 
@@ -113,6 +125,29 @@ When using `TMTicketsView` directly (embedded pattern), you must:
 1. Call `TMTickets.shared.start(ticketsView:)` after SDK configuration completes
 2. Set `translatesAutoresizingMaskIntoConstraints = false`
 3. Add constraints relative to `safeAreaLayoutGuide` to avoid overlap with navigation bars
+
+### SwiftUI Integration
+The app includes a complete SwiftUI integration via `UIViewControllerRepresentable`:
+
+**TicketsView Wrapper** (`TicketsView.swift`):
+- Wraps `TMTicketsViewController` for use in SwiftUI
+- Handles lifecycle automatically (makeUIViewController/updateUIViewController)
+- No manual state management required - SDK manages its own state
+
+**UIKit to SwiftUI Bridging** (`MainMenuVC+TableViewDelegate.swift`):
+- Use `UIHostingController` to present SwiftUI views from UIKit
+- Pass `onDismiss` closures to SwiftUI views for proper dismissal
+- Pattern: `UIHostingController(rootView: SwiftUIView(onDismiss: { [weak self] in self?.dismiss() }))`
+
+**Example Views** (`TicketsViewExamples.swift`):
+- `BasicTicketsExample`: Simple push navigation pattern
+- `ModalTicketsExample`: Sheet presentation with trigger button and Close button
+- `FullScreenTicketsExample`: Full screen cover with trigger button and Close button
+- `TabViewTicketsExample`: Complete tab interface with tickets tab and Close button
+
+All modal examples include `onDismiss` closures to properly dismiss the `UIHostingController` when presented from UIKit.
+
+See `SwiftUIIntegrationGuide.md` for complete usage instructions and code examples.
 
 ## Dependencies
 

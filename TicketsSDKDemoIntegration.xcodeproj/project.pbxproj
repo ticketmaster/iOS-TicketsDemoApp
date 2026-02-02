@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		790F3C492D5ACA3F005E5C98 /* TicketmasterSwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 790F3C482D5ACA3F005E5C98 /* TicketmasterSwiftProtobuf */; };
+		795AE2E92F31355D00166326 /* TicketsViewExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AE2E82F31355D00166326 /* TicketsViewExamples.swift */; };
+		795AE2EA2F31355D00166326 /* TicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AE2E72F31355D00166326 /* TicketsView.swift */; };
 		79CD611D2A4E0D360005384B /* TicketmasterAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = 79CD611C2A4E0D360005384B /* TicketmasterAuthentication */; };
 		79CD611F2A4E0D360005384B /* TicketmasterFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 79CD611E2A4E0D360005384B /* TicketmasterFoundation */; };
 		79CD61212A4E0D360005384B /* TicketmasterSecureEntry in Frameworks */ = {isa = PBXBuildFile; productRef = 79CD61202A4E0D360005384B /* TicketmasterSecureEntry */; };
@@ -51,6 +53,10 @@
 		792867A42A4636DA00DD4F4D /* Events.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Events.jpg; sourceTree = "<group>"; };
 		792867A52A4636DA00DD4F4D /* MainMenu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MainMenu.jpg; sourceTree = "<group>"; };
 		792867A62A463A0200DD4F4D /* Modules.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Modules.jpg; sourceTree = "<group>"; };
+		795AE2E72F31355D00166326 /* TicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsView.swift; sourceTree = "<group>"; };
+		795AE2E82F31355D00166326 /* TicketsViewExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewExamples.swift; sourceTree = "<group>"; };
+		795AE2EB2F31356E00166326 /* SwiftUIIntegrationGuide.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SwiftUIIntegrationGuide.md; sourceTree = "<group>"; };
+		795AE2ED2F31406600166326 /* CLAUDE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CLAUDE.md; sourceTree = SOURCE_ROOT; };
 		79DC447B2BE984DC001ABDDF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		79ED74ED2A3B54B700403D43 /* TicketsSDKDemoIntegration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketsSDKDemoIntegration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79ED74F02A3B54B700403D43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +136,8 @@
 			children = (
 				792867A12A4636B400DD4F4D /* SampleScreenshots */,
 				792867992A46204C00DD4F4D /* README.md */,
+				795AE2ED2F31406600166326 /* CLAUDE.md */,
+				795AE2EB2F31356E00166326 /* SwiftUIIntegrationGuide.md */,
 				79ED74F02A3B54B700403D43 /* AppDelegate.swift */,
 				79ED74F22A3B54B800403D43 /* SceneDelegate.swift */,
 				79ED751B2A3B5FFA00403D43 /* Configuration.swift */,
@@ -143,6 +151,8 @@
 				79FE1DEF2D6E4D7D0070652F /* MainMenuVC+CustomModules.swift */,
 				79ED75272A3B775400403D43 /* MainMenuVC+TableViewDelegate.swift */,
 				79ED75192A3B5B1B00403D43 /* EmbeddedViewController.swift */,
+				795AE2E82F31355D00166326 /* TicketsViewExamples.swift */,
+				795AE2E72F31355D00166326 /* TicketsView.swift */,
 				79ED74F62A3B54B800403D43 /* Main.storyboard */,
 				79ED74F92A3B54BA00403D43 /* Assets.xcassets */,
 				79ED74FB2A3B54BA00403D43 /* LaunchScreen.storyboard */,
@@ -246,6 +256,8 @@
 				79ED75202A3B68A700403D43 /* MainMenuVC+OrderDelegate.swift in Sources */,
 				79ED74F12A3B54B800403D43 /* AppDelegate.swift in Sources */,
 				79ED75222A3B6ABC00403D43 /* MainMenuVC+AnalyticsDelegate.swift in Sources */,
+				795AE2E92F31355D00166326 /* TicketsViewExamples.swift in Sources */,
+				795AE2EA2F31355D00166326 /* TicketsView.swift in Sources */,
 				79ED74F32A3B54B800403D43 /* SceneDelegate.swift in Sources */,
 				79ED75282A3B775400403D43 /* MainMenuVC+TableViewDelegate.swift in Sources */,
 			);
