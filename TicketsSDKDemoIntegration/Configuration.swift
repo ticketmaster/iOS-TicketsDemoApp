@@ -13,7 +13,8 @@ class Configuration: NSObject {
     
     static let shared = Configuration()
     
-    /// get your own API key from developer.ticketmaster.com
+    // TODO: add your own API keyfrom developer.ticketmaster.com
+    /// API key used to configure Authentication SDK and Tickets SDK
     let apiKey: String = "<your apiKey>"
     
     /// UK, IE, Microflex and Sport XR should use .UK, all others should use .US
