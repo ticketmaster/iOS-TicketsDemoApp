@@ -13,12 +13,14 @@ import TicketmasterTickets // for TMTickets.shared and TMTicketsView
 ///
 /// this example is provided as an alternative way to embed Tickets SDK in your application's UI
 class EmbeddedViewController: UIViewController {
-    
-    var addLogoutButton: Bool = false
-    
-    var addCloseButton: Bool = false
-    
-    var useSafeBottom: Bool = false
+
+    struct Configuration {
+        var addLogoutButton: Bool = false
+        var addCloseButton: Bool = false
+        var useSafeBottomArea: Bool = false
+    }
+
+    var configuration = Configuration()
     
     private var logoutButton: UIBarButtonItem?
     private var closeButton: UIBarButtonItem?
@@ -86,7 +88,7 @@ class EmbeddedViewController: UIViewController {
                 let rightConstraint = NSLayoutConstraint(item: tView, attribute: .right, relatedBy: .equal,
                                                          toItem: view.safeAreaLayoutGuide, attribute: .right, multiplier: 1.0, constant: 0.0)
                 let bottomConstraint: NSLayoutConstraint
-                if useSafeBottom {
+                if configuration.useSafeBottomArea {
                     // do NOT extend under bottom tab swipe (ie. use safeAreaLayoutGuide)
                     bottomConstraint = NSLayoutConstraint(item: tView, attribute: .bottom, relatedBy: .equal,
                                                           toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0)
@@ -115,11 +117,11 @@ class EmbeddedViewController: UIViewController {
     }
     
     func buildButtons() {
-        if addLogoutButton, logoutButton == nil {
+        if configuration.addLogoutButton, logoutButton == nil {
             logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonPressed))
             navigationItem.rightBarButtonItem = logoutButton
         }
-        if addCloseButton, closeButton == nil {
+        if configuration.addCloseButton, closeButton == nil {
             closeButton =  UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(closeButtonPressed))
             navigationItem.leftBarButtonItem = closeButton
         }

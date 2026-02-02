@@ -9,6 +9,19 @@ import Foundation
 import MapKit // for MKCoordinateRegion and CLLocationCoordinate2D
 import TicketmasterTickets // for TMPurchasedEvent, TMTicketsModuleHeaderView and TMTicketsModule
 
+// MARK: - Module Identifiers
+
+enum ModuleIdentifier {
+    static let generic = "com.myDemoApp.genericModule"
+    static let parking = "com.myDemoApp.parking"
+    static let rideshare = "com.myDemoApp.rideshare"
+    static let rideshareParking = "com.myDemoApp.rideshareParking"
+    static let seatingChart = "com.myDemoApp.seatingChart"
+    static let venueInfo = "com.myDemoApp.venueInfo"
+    static let venueVoucher = "com.myDemoApp.venueVoucher"
+    static let merchShop = "com.myDemoApp.merchShop"
+}
+
 // MARK: - Build Some Example Custom Modules
 
 extension MainMenuViewController {
@@ -16,6 +29,11 @@ extension MainMenuViewController {
     func buildCustomModules(event: TMPurchasedEvent, completion: @escaping (_ customModules: [TMTicketsModule]) -> Void) {
         print(" - Adding Custom Modules")
         var output: [TMTicketsModule] = []
+
+        // Note: Modules can have:
+        // 1. header only (no buttons)
+        // 2. buttons only (no header)
+        // 3. both header and buttons
         
         // build a generic module
         // Tickets SDK does not know how to handle a "generic" action,
@@ -24,28 +42,28 @@ extension MainMenuViewController {
             output.append(module)
         }
         
-        // build a custom rideshare module
-        // Ticket SDK is not sure exactly how you want to handle a "rideshare",
+        // build a custom parking module
+        // Ticket SDK is not sure exactly how you want to handle parking,
         //  so Tickets will call back into handleModuleActionButton()
         if let module = parkingModule(event: event) {
             output.append(module)
         }
         
-        // build a custom venue parking module
+        // build a custom rideshare module
         // Ticket SDK is not sure exactly how you want to handle a "rideshare",
         //  so Tickets will call back into handleModuleActionButton()
         if let module = rideshareModule(event: event) {
             output.append(module)
         }
         
-        // build a custom rideshare module
+        // build a custom seating chart module
         // Tickets SDK knows how to handle opening a webpage,
         //  so handleModuleActionButton() will not be called
         if let module = seatingChartModule(event: event) {
             output.append(module)
         }
         
-        // build a custom seating chart module
+        // build a custom venue info module
         // Tickets SDK knows how to handle opening a webpage,
         //  so handleModuleActionButton() will not be called
         if let module = venueInfoModule(event: event) {
@@ -84,14 +102,9 @@ extension MainMenuViewController {
         // build generic action button
         let genericButton = TMTicketsModule.ActionButton(title: "Time for Action!",
                                                          callbackValue: "genericAction")
-        
-        // modules can have:
-        // 1. header only (no buttons)
-        // 2. buttons only (no header)
-        // 3. both header and buttons
-        
+
         // build module
-        return TMTicketsModule(identifier: "com.myDemoApp.genericModule", // a name unique to your app
+        return TMTicketsModule(identifier: ModuleIdentifier.generic, // a name unique to your app
                                headerDisplay: headerDisplay,
                                actionButtons: [genericButton]) // you can show 0-3 buttons
     }
@@ -123,7 +136,7 @@ extension MainMenuViewController {
         let button1 = TMTicketsModule.ActionButton(title: "Parking Directions")
 
         // build module with header and buttons
-        return TMTicketsModule(identifier: "com.myDemoApp.parking",
+        return TMTicketsModule(identifier: ModuleIdentifier.parking,
                                      headerDisplay: header,
                                      actionButtons: [button1])
     }
@@ -146,14 +159,9 @@ extension MainMenuViewController {
         let parkingActionButton = TMTicketsModule.ActionButton(
             title: "Parking",
             webpageSettings: parkingWebpageSettings)
-        
-        // modules can have:
-        // 1. header only (no buttons)
-        // 2. buttons only (no header)
-        // 3. both header and buttons
-        
+
         // build module
-        return TMTicketsModule(identifier: "com.myDemoApp.rideshare", // a name unique to your app
+        return TMTicketsModule(identifier: ModuleIdentifier.rideshare, // a name unique to your app
                                headerDisplay: nil, // this module has buttons only (no header)
                                actionButtons: [rideshareActionButton, parkingActionButton]) // you can show 0 to 3 buttons
     }
@@ -168,14 +176,9 @@ extension MainMenuViewController {
             webpageSettings: seatingChartWebpageSettings)
         
         // Tickets SDK knows how to open a webpage, so handleModuleActionButton() will not be called
-        
-        // modules can have:
-        // 1. header only (no buttons)
-        // 2. buttons only (no header)
-        // 3. both header and buttons
-        
+
         // build module
-        return TMTicketsModule(identifier: "com.myDemoApp.seatingChart", // a name unique to your app
+        return TMTicketsModule(identifier: ModuleIdentifier.seatingChart, // a name unique to your app
                                headerDisplay: nil, // this module has buttons only (no header)
                                actionButtons: [seatingChartActionButton]) // you can show 0 to 3 buttons
     }
@@ -216,14 +219,9 @@ extension MainMenuViewController {
             webpageSettings: venue360WebpageSettings)
         
         // Tickets SDK knows how to open a webpage, so handleModuleActionButton() will not be called
-        
-        // modules can have:
-        // 1. header only (no buttons)
-        // 2. buttons only (no header)
-        // 3. both header and buttons
-        
+
         // build module
-        return TMTicketsModule(identifier: "com.myDemoApp.venueInfo", // a name unique to your app
+        return TMTicketsModule(identifier: ModuleIdentifier.venueInfo, // a name unique to your app
                                headerDisplay: headerDisplay,
                                actionButtons: [venueInfoActionButton, venue360ActionButton]) // you can show 0 to 3 buttons
     }
@@ -268,14 +266,9 @@ extension MainMenuViewController {
             webpageSettings: concessionsInfoWebpageSettings)
         
         // Tickets SDK knows how to open a webpage, so handleModuleActionButton() will not be called
-        
-        // modules can have:
-        // 1. header only (no buttons)
-        // 2. buttons only (no header)
-        // 3. both header and buttons
-        
+
         // build module
-        return TMTicketsModule(identifier: "com.myDemoApp.venueVoucher", // a name unique to your app
+        return TMTicketsModule(identifier: ModuleIdentifier.venueVoucher, // a name unique to your app
                                headerDisplay: headerDisplay,
                                actionButtons: [concessionsInfoActionButton]) // you can show 0 to 3 buttons
     }
@@ -322,14 +315,9 @@ extension MainMenuViewController {
         let merchShopActionButton = TMTicketsModule.ActionButton(
             title: "Shopping", // what user will see, you should localize this text
             webpageSettings: merchShopWebpageSettings)
-        
-        // modules can have:
-        // 1. header only (no buttons)
-        // 2. buttons only (no header)
-        // 3. both header and buttons
-        
+
         // build module
-        return TMTicketsModule(identifier: "com.myDemoApp.merchShop", // a name unique to your app
+        return TMTicketsModule(identifier: ModuleIdentifier.merchShop, // a name unique to your app
                                headerDisplay: headerDisplay,
                                actionButtons: [fanCollectionActionButton, merchShopActionButton]) // you can show 0
     }

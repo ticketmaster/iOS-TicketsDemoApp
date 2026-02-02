@@ -61,7 +61,7 @@ extension MainMenuViewController: TMTicketsModuleDelegate {
                 // TODO: present VenueNext SDK Wallet (or other Concession UI)
             }
             
-        } else if module.identifier == "com.myDemoApp.rideshareParking" {
+        } else if module.identifier == ModuleIdentifier.rideshareParking {
             if button.callbackValue == "rideShare" {
                 print("handleModuleActionButton: Present RideShare")
                 completion(nil) // dismiss My Tickets view in PSDK
@@ -70,7 +70,7 @@ extension MainMenuViewController: TMTicketsModuleDelegate {
                 // if the app is not available, then it opens the Uber or Lyft webpage
             }
             
-        } else if module.identifier == "com.myDemoApp.genericModule" {
+        } else if module.identifier == ModuleIdentifier.generic {
             if button.callbackValue == "genericAction" {
                 print("handleModuleActionButton: Generic Action")
                 //completion(nil) // dismiss My Tickets view in PSDK

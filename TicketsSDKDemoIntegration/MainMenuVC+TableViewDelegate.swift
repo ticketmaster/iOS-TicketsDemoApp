@@ -11,33 +11,59 @@ import TicketmasterAuthentication // for TMAuthentication.shared
 import TicketmasterTickets // for TMTicketsViewController()
 
 extension MainMenuViewController {
-    
+
+    private enum MenuItem {
+        case ticketsPush
+        case ticketsModal
+        case ticketsEmbeddedPush
+        case ticketsEmbeddedModal
+        case login
+        case memberInfo
+        case logout
+
+        init?(indexPath: IndexPath) {
+            switch (indexPath.section, indexPath.row) {
+            case (0, 0): self = .ticketsPush
+            case (0, 1): self = .ticketsModal
+            case (0, 2): self = .ticketsEmbeddedPush
+            case (0, 3): self = .ticketsEmbeddedModal
+            case (1, 0): self = .login
+            case (1, 1): self = .memberInfo
+            case (1, 2): self = .logout
+            default: return nil
+            }
+        }
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+
+        guard let menuItem = MenuItem(indexPath: indexPath) else { return }
+
+        switch menuItem {
         // Present Tickets (push)
-        if indexPath == IndexPath(row: 0, section: 0) {
+        case .ticketsPush:
             let ticketsVC = TMTicketsViewController()
             navigationController?.pushViewController(ticketsVC, animated: true)
-            
+
         // Present Tickets (modal)
-        } else if indexPath == IndexPath(row: 1, section: 0) {
+        case .ticketsModal:
             let ticketsVC = TMTicketsViewController()
             present(ticketsVC, animated: true)
-        
+
         // Push Tickets (embedded)
-        } else if indexPath == IndexPath(row: 2, section: 0) {
+        case .ticketsEmbeddedPush:
             let embeddedVC = EmbeddedViewController()
-            embeddedVC.addLogoutButton = true
+            embeddedVC.configuration.addLogoutButton = true
             navigationController?.pushViewController(embeddedVC, animated: true)
-            
+
         // Present Tickets (embedded)
-        } else if indexPath == IndexPath(row: 3, section: 0) {
+        case .ticketsEmbeddedModal:
             let embeddedVC = EmbeddedViewController()
             present(embeddedVC, animated: true)
-            
+
         // Login
-        } else if indexPath == IndexPath(row: 0, section: 1) {
+        case .login:
             // Tickets SDK handles login for you, so this call is optional
             TMAuthentication.shared.login { authToken in
                 print("Login Completed")
@@ -47,9 +73,9 @@ extension MainMenuViewController {
             } failure: { oldAuthToken, error, backend in
                 print("Login Error: \(error.localizedDescription)")
             }
-            
+
         // Member Info
-        } else if indexPath == IndexPath(row: 1, section: 1) {
+        case .memberInfo:
             // Tickets SDK handles login for you, so this call is optional
             TMAuthentication.shared.memberInfo { memberInfo in
                 print("MemberInfo Completed")
@@ -60,7 +86,7 @@ extension MainMenuViewController {
             }
 
         // Logout
-        } else if indexPath == IndexPath(row: 2, section: 1) {
+        case .logout:
             // TMTicketsViewController has it's own logout button, so this call is optional
             // unless you add your own logout button somewhere
             TMAuthentication.shared.logout { backends in

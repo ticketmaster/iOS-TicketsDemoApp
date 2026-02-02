@@ -26,17 +26,14 @@ extension MainMenuViewController: TMTicketsOrderDelegate {
     ///   - screenTitleName: title of screen where button was pressed
     ///   - event: current Event and purchased Orders being viewed (if any)
     func handleNavBarButtonAction(page: TicketmasterTickets.TMTickets.Analytics.Page, screenTitleName: String?, event: TicketmasterTickets.TMPurchasedEvent?) {
-        if let event = event {
-            if let name = screenTitleName {
-                print("User Pressed NavBar Button on Page: \(page.rawValue) Named: \(name) Event: \(event.info.identifier)")
-            } else {
-                print("User Pressed NavBar Button on Page: \(page.rawValue) Event: \(event.info.identifier)")
-            }
-        } else if let name = screenTitleName {
-            print("User Pressed NavBar Button on Page: \(page.rawValue) Named: \(name)")
-        } else {
-            print("User Pressed NavBar Button on Page: \(page.rawValue)")
+        var message = "User Pressed NavBar Button on Page: \(page.rawValue)"
+        if let name = screenTitleName {
+            message += " Named: \(name)"
         }
+        if let event = event {
+            message += " Event: \(event.info.identifier)"
+        }
+        print(message)
     }
     
     /// Method is invoked when custom button title is set by ``TMTickets/addCustomErrorPageButton(title:)``
