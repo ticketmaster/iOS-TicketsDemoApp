@@ -15,6 +15,8 @@ class Configuration: NSObject {
     
     // TODO: add your own API keyfrom developer.ticketmaster.com
     /// API key used to configure Authentication SDK and Tickets SDK
+    /// in general, do not leave API keys as clear-text in your source code or Git repo
+    /// in this demo example, we are using clear-text for simplicity.
     let apiKey: String = "<your apiKey>"
     
     /// UK, IE, Microflex and Sport XR should use .UK, all others should use .US

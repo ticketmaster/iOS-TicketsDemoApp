@@ -75,6 +75,7 @@ extension MainMenuViewController {
         case .login:
             // Tickets SDK handles login for you, so this call is optional
             TMAuthentication.shared.login { authToken in
+                // in a production app, do NOT log auth information to console like "print()"
                 print("Login Completed")
                 print(" - AuthToken: \(authToken.accessToken.prefix(20))...")
             } aborted: { oldAuthToken, backend in
@@ -87,6 +88,7 @@ extension MainMenuViewController {
         case .memberInfo:
             // Tickets SDK handles login for you, so this call is optional
             TMAuthentication.shared.memberInfo { memberInfo in
+                // in a production app, do NOT log member information to console like "print()"
                 print("MemberInfo Completed")
                 print(" - UserID: \(memberInfo.localID ?? "<nil>")")
                 print(" - Email: \(memberInfo.email ?? "<nil>")")
