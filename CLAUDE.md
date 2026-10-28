@@ -160,4 +160,4 @@ This project uses Swift Package Manager. The Ticketmaster SDK is also available 
 - TicketmasterSecureEntry
 - TicketmasterSwiftProtobuf
 
-Currently using Ticketmaster SDK version 1.18.0 (Tickets 3.15.0).
+Currently using Ticketmaster SDK version 1.22.1 (Tickets 3.19.1).
